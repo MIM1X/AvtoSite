@@ -51,6 +51,7 @@ margin: 0%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 .auth-buttons {
   justify-content: flex-start;
@@ -64,6 +65,7 @@ margin: 0%;
   flex: 1;
   justify-content: space-between;
   gap: 20px;
+  padding: 0 11px 0 11px;
 }
 .frame-wrapper {
   align-self: stretch;
@@ -133,6 +135,7 @@ margin: 0%;
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
+  flex-wrap: wrap;
 }
 .nav-items {
   flex: 1;
@@ -145,7 +148,7 @@ margin: 0%;
 }
 .navigation {
   flex-direction: row;
-  padding: 0 15px 0 8px;
+  padding: 0 0 0 8px;
   box-sizing: border-box;
   font-size: 16px;
 }
@@ -311,7 +314,8 @@ margin: 0%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .rectangle-parent {
   height: 34px;
@@ -332,7 +336,7 @@ margin: 0%;
 
 .car-selectors {
   align-self: stretch;
-  gap: 45px;
+  gap: 44.6px;
 }
 .p,
 .p1,
@@ -470,13 +474,13 @@ margin: 0%;
 .wrapper {
 
   flex-direction: row;
-  padding: 0 69px;
 }
 .brand-banner,
 .frame-parent,
 .wrapper {
   display: flex;
   max-width: 100%;
+  justify-content: center;
 }
 .frame-parent {
   width: 1161px;
