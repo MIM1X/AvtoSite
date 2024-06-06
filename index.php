@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
     /> 
   </head>
+  
   <script src="index.js"></script>
   <body class="body">
     <div class="car">
@@ -196,3 +197,6 @@
     </div>
   </body>
 </html>
+
+<?php
+$connect = mysqli_connect(hostname:'127.0.0.1',username:'root', password:'', database:'cardetailshop');
