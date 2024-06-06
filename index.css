@@ -68,7 +68,7 @@ margin: 0%;
 .frame-wrapper {
   align-self: stretch;
   justify-content: flex-start;
-  padding: 0 18px 0 9px;
+  padding: 12px 0px 0 0px;
   box-sizing: border-box;
 }
 .logo-icon {
@@ -468,7 +468,7 @@ margin: 0%;
   flex-shrink: 0;
 }
 .wrapper {
-  height: 210px;
+
   flex-direction: row;
   padding: 0 69px;
 }
@@ -476,7 +476,6 @@ margin: 0%;
 .frame-parent,
 .wrapper {
   display: flex;
-  align-items: flex-start;
   max-width: 100%;
 }
 .frame-parent {

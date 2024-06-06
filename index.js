@@ -1,12 +1,14 @@
-// Создаем кнопку
-let btn = document.createElement('button');
-btn.innerText = 'Добавить элемент';
-document.body.appendChild(btn);
+(function(window, document, undefined) {
 
-// Добавляем обработчик события нажатия на кнопку
-btn.addEventListener('click', function() {
- // Здесь добавляем нужный HTML элемент
- let div = document.createElement('div');
- div.innerText = 'Это новый элемент';
- document.body.appendChild(div);
-});
+    // code that should be taken care of right away
+  
+    window.onload = init;
+  
+    function init(){
+      // the code to be called when the dom has loaded
+      // #document has its nodes
+      const title = document.getElementById("zaza");
+title.remove();
+    }
+  
+  })(window, document, undefined);
