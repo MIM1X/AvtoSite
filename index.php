@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
 </head>
 
-<script src="index.js"></script>
+<script src="index.js" defer></script>
 
 <body class="body">
   <div class="car">
@@ -77,7 +77,7 @@
                 </div>
               </div>
               <div class="rectangle-parent">
-                <div class="div12">Перейти</div>
+                <div class="div15">Перейти</div>
               </div>
             </div>
             <div class="search-input">
@@ -91,8 +91,8 @@
                 <div class="div13">
                   <input class="sjnaan16u177457" placeholder="Пример: 4134400К00 / SJNAAN16U177457 / Бензонасос 2107" type="text" />
                 </div>
-                <div class="div14">
-                  <div class="div15">Поиск</div>
+                <div class="rectangle-parent" id="buttonSearch" onclick="AddTovar()">
+                  <div class="div15" onclick="">Поиск</div>
                 </div>
               </div>
             </div>
@@ -101,35 +101,8 @@
       </div>
     </section>
 
-    <section class="spisoktovar">
-      <div class="tovar">
-        <div class="div53">
-          <a class="a10">Вариатор Ford C-Max DKU200</a>
-          <a class="a11">250.000RUB</a>
-        </div>
-        <img class="icon2" loading="lazy" src="./public/zaza.svg" />
-      </div>
-      <div class="tovar">
-        <div class="div53">
-          <a class="a10">Рома </a>
-          <a class="a11">1 Бал</a>
-        </div>
-        <img class="icon2" loading="lazy" src="./public/zaza.svg" />
-      </div>
-      <div class="tovar">
-        <div class="div53">
-          <a class="a10">Говновоз</a>
-          <a class="a11">∞</a>
-        </div>
-        <img class="icon2" loading="lazy" src="./public/zaza.svg" />
-      </div>
-      <div class="tovar">
-        <div class="div53">
-          <a class="a10">Диплом</a>
-          <a class="a11">2 рубля</a>
-        </div>
-        <img class="icon2" loading="lazy" src="./public/zaza.svg" />
-      </div>
+    <section class="spisoktovar" id="SpisokTovarov">
+
     </section>
 
     <footer class="footer">
