@@ -9,7 +9,7 @@ function AddTovar() {
   Price = getRandomIntInclusive(10, 100000);
   var tovar = document.createElement('div');
   tovar.setAttribute('class', 'tovar', 'onclick', 'alert', 'Вы подписаны');
-  tovar.onclick = function() {window.location.href = 'http://localhost/AvtoSite/test.html';};
+  tovar.onclick = function() {window.location.href = './Tovar/tovar.php';};
 
   //Создание запроса
   tovar.innerHTML = `
