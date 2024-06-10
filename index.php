@@ -7,7 +7,7 @@
 
   <title>ЗапчастьCAR</title>
 
-  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="index.css"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
 </head>
 
@@ -25,7 +25,7 @@
                 <a class="a">Серебристый б-р, д. 34</a>
                 <a class="norm">+7 (937) 913-81-50</a>
               </div>
-              <div class="auth-buttons">
+              <div class="auth-buttons" onClick="window.location.href = './Regestration/reg.php'">
                 <a class="a1">Регестрация</a>
                 <a class="a2">Войти</a>
               </div>
@@ -92,7 +92,7 @@
                   <input class="sjnaan16u177457" placeholder="Пример: 4134400К00 / SJNAAN16U177457 / Бензонасос 2107" type="text" />
                 </div>
                 <div class="rectangle-parent" id="buttonSearch" onclick="AddTovar()">
-                  <div class="div15" onclick="">Поиск</div>
+                  <div class="div15">Поиск</div>
                 </div>
               </div>
             </div>
@@ -189,9 +189,4 @@
     </footer>
   </div>
 </body>
-
 </html>
-
-<?php
-$connect = mysqli_connect(hostname: '127.0.0.1', username: 'root', password: '', database: 'cardetailshop');
-

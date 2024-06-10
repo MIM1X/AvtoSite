@@ -1,5 +1,4 @@
-//Получение кнопки по её ID
-AddTovar = document.getElementById('myButton').onclick;
+
 
 //Функция добавления товара в вывод
 function AddTovar() {

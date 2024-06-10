@@ -1,0 +1,10 @@
+.log,
+.reg{
+    padding: 10px;
+}
+
+.WLMtxt{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Montserrat;
+}
