@@ -43,14 +43,11 @@
   position: relative;
   color: inherit;
   display: inline-block;
-  min-width: 94px;
-  z-index: 2;
   cursor: pointer;
 }
 
 .a2 {
   font-weight: 500;
-  min-width: 46px;
 }
 
 .auth-buttons,

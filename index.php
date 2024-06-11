@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +11,7 @@
 
   <title>ЗапчастьCAR</title>
 
-  <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
 </head>
 
@@ -25,20 +29,33 @@
                 <a class="a">Серебристый б-р, д. 34</a>
                 <a class="norm">+7 (937) 913-81-50</a>
               </div>
-              <div class="auth-buttons" onClick="window.location.href = './Regestration/reg.php'">
-                <a class="a1">Регестрация</a>
-                <a class="a2">Войти</a>
-              </div>
+              <?php
+              if (!empty($_SESSION['user']))
+                echo '
+                <div class="auth-buttons">
+                  <a class="a2">' . $_SESSION['user']['email'] . '</a>
+                  <a class="a1" href="./Auth/vendor/logout.php">Выйти</a>
+                </div>';
+              else
+                echo '
+                              <div class="auth-buttons">
+                                <a class="a1" onClick="window.location.href = \'./Auth/Register.php\'">Регестрация</a>
+                                <a class="a2" onClick="window.location.href = \'./Auth/Auth1.php\'">Войти</a>
+                              </div>
+                ';
+              ?>
             </div>
           </div>
           <div class="header-separator">
-            <img onClick="window.location.href = 'http://localhost/AvtoSite/'" class="logo-icon" loading="lazy" src="./public/logo.svg" />
+            <img onClick="window.location.href = 'http://localhost/AvtoSite/'" class="logo-icon" loading="lazy"
+              src="./public/logo.svg" />
             <img class="icon" alt="" src="./public/@2x.png" />
           </div>
           <div class="navigation">
             <div class="nav-items">
               <a class="car1">
-                <span onClick="window.location.href = 'http://localhost/AvtoSite/'" class="span">запчасть<b>CAR</b></span>
+                <span onClick="window.location.href = 'http://localhost/AvtoSite/'"
+                  class="span">запчасть<b>CAR</b></span>
               </a>
               <div class="nav-links">
                 <a class="a4">КАТАЛОГ</a>
@@ -89,7 +106,8 @@
               </div>
               <div class="search-bar">
                 <div class="div13">
-                  <input class="sjnaan16u177457" placeholder="Пример: 4134400К00 / SJNAAN16U177457 / Бензонасос 2107" type="text" />
+                  <input class="sjnaan16u177457" placeholder="Пример: 4134400К00 / SJNAAN16U177457 / Бензонасос 2107"
+                    type="text" />
                 </div>
                 <div class="rectangle-parent" id="buttonSearch" onclick="AddTovar()">
                   <div class="div15">Поиск</div>
@@ -189,4 +207,5 @@
     </footer>
   </div>
 </body>
+
 </html>

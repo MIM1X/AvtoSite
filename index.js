@@ -7,7 +7,7 @@ function AddTovar() {
   Name = document.querySelector('.sjnaan16u177457').value;
   Price = getRandomIntInclusive(10, 100000);
   var tovar = document.createElement('div');
-  tovar.setAttribute('class', 'tovar', 'onclick', 'alert', 'Вы подписаны');
+  tovar.setAttribute('class', 'tovar', 'onclick');
   tovar.onclick = function() {window.location.href = './Tovar/tovar.php';};
 
   //Создание запроса
@@ -27,4 +27,14 @@ function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min); // Максимум и минимум включаются
+}
+
+function exitFromLogin(){
+  result = confirm('Вы действительно хотите выйти из профиля?');
+}
+if(result){
+  jQuery.ajax({
+    type: "POST",
+    url: '/Auth/vendor/logout.php',
+});
 }
