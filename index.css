@@ -323,8 +323,7 @@
   z-index: 1;
 }
 
-.car-selectors,
-.rectangle-parent {
+.car-selectors {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -333,21 +332,25 @@
 }
 
 .rectangle-parent {
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
   height: 34px;
   width: 201px;
   border-radius: 8px;
   background-color: #d9d9d9;
   border: 2px solid #1a1a1a;
   box-sizing: border-box;
-  padding: 5px 60px 5px 61px;
-  z-index: 1;
-  text-align: center;
   cursor: pointer;
 }
 
 .rectangle-parent:hover {
   background-color: #999999;
   color: white;
+}
+
+.rectangle-parent:active{
+  transform: scale(0.99); 
 }
 
 .car-selectors {

@@ -93,34 +93,51 @@ session_start();
                   <div class="div8">▼</div>
                 </div>
               </div>
-              <div class="rectangle-parent">
-                <div class="div15">Перейти</div>
-              </div>
+              <button class="rectangle-parent">Перейти</button>
             </div>
-            <div class="search-input">
-              <div class="vin-container">
-                <p class="p">Поиск по:</p>
-                <p class="p1">номеру запчати</p>
-                <p class="vin">VIN автомобиля</p>
-                <p class="p2">названию запчасти</p>
-              </div>
-              <div class="search-bar">
-                <div class="div13">
-                  <input class="sjnaan16u177457" placeholder="Пример: 4134400К00 / SJNAAN16U177457 / Бензонасос 2107"
-                    type="text" />
+            <form action="./Auth/vendor/searchItem.php" method="post">
+              <div class="search-input">
+                <div class="vin-container">
+                  <p class="p">Поиск по:</p>
+                  <p class="p1">номеру запчати</p>
+                  <p class="vin">VIN автомобиля</p>
+                  <p class="p2">названию запчасти</p>
                 </div>
-                <div class="rectangle-parent" id="buttonSearch" onclick="AddTovar()">
-                  <div class="div15">Поиск</div>
+                <div class="search-bar">
+                  <div class="div13">
+                    <input name="searchTovar" class="sjnaan16u177457"placeholder="Пример: 4134400К00 / SJNAAN16U177457 / Бензонасос 2107" type="text"/>
+                  </div>
+                  <button type="submit" class="rectangle-parent" id="buttonSearch">Поиск</button>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
     <section class="spisoktovar" id="SpisokTovarov">
-
+      <?php
+      if (!empty($_SESSION['tovar'])) {
+        for ($i = 0; $i < count($_SESSION['tovar']); $i++) {
+          echo
+            '
+                          <div class="tovar">
+              <div class="div53">
+                <a class="a11">'.$_SESSION['tovar'][$i]['Name'].'</a>
+                <a class="a11">'.$_SESSION['tovar'][$i]['Price'].' RUB</a>
+              </div>
+              <img class="icon2" loading="lazy" src="./public/zaza.svg"/>
+              </div>
+            ';
+        }
+        unset($_SESSION['tovar']);
+      } else {
+        if (!empty($_SESSION['message']))
+          echo $_SESSION['message'];
+        unset($_SESSION['message']);
+      }
+      ?>
     </section>
 
     <footer class="footer">

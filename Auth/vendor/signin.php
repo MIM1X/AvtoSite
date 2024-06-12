@@ -12,7 +12,7 @@ $user = mysqli_fetch_assoc($check_user);
 
 $_SESSION['user'] = [
     "id" => $user ['CustomerID'],
-    "email" => $user ['EmailAddress'],
+    "email" => $user ['EmailAddress']
 ];
 
 header('Location: ../../index.php');
