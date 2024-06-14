@@ -4,10 +4,10 @@ session_start();
 require_once 'db.php';
 
 $nameTovar = $_POST['searchTovar'];
-$_SESSION['search'] = $nameTovar;
 
 if (!empty($nameTovar)) {
-    $check_tovar = mysqli_query($connect, "SELECT * FROM `products` WHERE `Name` LIKE '%$nameTovar%'");
+    $check_tovar = mysqli_query($connect, "SELECT * FROM `products` WHERE (`Part_Num` LIKE '$nameTovar%' AND LENGTH('$nameTovar') >= 5) OR `Name` LIKE '%$nameTovar%'");
+
     if (mysqli_num_rows($check_tovar) > 0) {
 
         $array = array();
@@ -19,16 +19,18 @@ if (!empty($nameTovar)) {
         }
         $_SESSION['tovar'] = $array;
     } else {
-        $_SESSION['message'] = 'Такого товара не нашлось, проверьте название';
-    };
+        $_SESSION['message'] = 'Такого товара не нашлось, пожалуйста проверьте корректность введённых данных';
+    }
+    ;
 } else {
-    $_SESSION['message'] = 'Вбейте, что-нибудь в поиск';
-};
+    $_SESSION['message'] = 'Пожалуйста, введите поисковый запрос для получения результатов';
+}
+;
 header('Location: ../../index.php');
 
 
 
-// $_SESSION['tovar'] = ["nekiyTovar"=>[
+// $_SESSION['tovar'] = 
 //     "id" => $tovar ['ProductID'],
 //     "name" => $tovar ['Name'],
 //     "description" => $tovar ['Description'],
@@ -37,4 +39,4 @@ header('Location: ../../index.php');
 //     "stock" => $tovar ['Stock'],
 //     "supplier" => $tovar ['Supplier'],
 //     "partNum" => $tovar ['Part_Num']
-// ]];
+// ];

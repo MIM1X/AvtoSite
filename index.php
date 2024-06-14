@@ -14,9 +14,6 @@ session_start();
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
 </head>
-
-<script src="index.js" defer></script>
-
 <body class="body">
   <div class="car">
     <section class="brand-banner">
@@ -118,23 +115,26 @@ session_start();
 
     <section class="spisoktovar" id="SpisokTovarov">
       <?php
+
       if (!empty($_SESSION['tovar'])) {
         for ($i = 0; $i < count($_SESSION['tovar']); $i++) {
+          $tovar_query = http_build_query(array('tovar' => $_SESSION['tovar'][$i]));
           echo
             '
-                          <div class="tovar">
-              <div class="div53">
-                <a class="a11">'.$_SESSION['tovar'][$i]['Name'].'</a>
-                <a class="a11">'.$_SESSION['tovar'][$i]['Price'].' RUB</a>
-              </div>
+              <div class="tovar" onclick= window.location.href="./Tovar/tovar.php?'.$tovar_query.'">
+                <div class="div53">
+                  <a class="a11">'.$_SESSION['tovar'][$i]['Name'].'</a>
+                  <a class="a11">'.$_SESSION['tovar'][$i]['Price'].' RUB</a>
+                </div>
               <img class="icon2" loading="lazy" src="./public/zaza.svg"/>
               </div>
             ';
         }
         unset($_SESSION['tovar']);
       } else {
+        //сообщение о пустоте результатов
         if (!empty($_SESSION['message']))
-          echo $_SESSION['message'];
+          echo '<a class = "a2">'.$_SESSION['message'].'</a>';
         unset($_SESSION['message']);
       }
       ?>
@@ -224,5 +224,4 @@ session_start();
     </footer>
   </div>
 </body>
-
 </html>
