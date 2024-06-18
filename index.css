@@ -35,6 +35,7 @@
   justify-content: flex-start;
   gap: 20px;
   max-width: 100%;
+  flex-wrap: wrap;
 }
 
 .a1,
@@ -329,6 +330,9 @@
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
+  align-self: stretch;
+  row-gap: 20px;
+  column-gap: 44.6px;
 }
 
 .rectangle-parent {
@@ -351,11 +355,6 @@
 
 .rectangle-parent:active{
   transform: scale(0.99); 
-}
-
-.car-selectors {
-  align-self: stretch;
-  gap: 44.6px;
 }
 
 .p,
@@ -393,7 +392,6 @@
   color: #1a1a1a;
   text-align: left;
   display: inline-block;
-  min-width: 250px;
   max-width: 100%;
   padding: 0;
   z-index: 1;
@@ -1045,10 +1043,6 @@
 @media screen and (max-width: 750px) {
   .nav-items {
     gap: 28px;
-  }
-
-  .car-selectors {
-    gap: 22px;
   }
 
   .search-bar {

@@ -15,7 +15,7 @@ if (empty($email) || empty($pass) || empty($reppass)) {
         $pass= md5($pass);
 
         mysqli_query($connect, "INSERT INTO `customers` (`EmailAddress`, `Password`) VALUES ('$email', '$pass')");
-        
+
         $_SESSION['message'] = 'Регестрация прошла успешно!';
         header('Location: ../Auth1.php');
 

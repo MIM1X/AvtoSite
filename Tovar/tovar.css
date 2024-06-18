@@ -130,8 +130,6 @@ a {
     font-weight: 500;
 }
 
-.price {}
-
 .zaza {
     gap: 10px;
     display: flex;
@@ -164,19 +162,13 @@ a {
     min-width: 254px;
 }
 
-.charact,
-.textcharact {
-    position:relative;
-    z-index: 1;
-}
-
 .charact {
     font-weight: 500;
 }
 
 .textcharact {
     align-self: stretch;
-    height: 102px;
+    height: auto;
     font-size: 15px;
     display: inline-block;
     flex-shrink: 0;
@@ -230,7 +222,7 @@ a {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 30px;
     max-width: 100%;
     font-size: 16px;
 }

@@ -63,10 +63,7 @@ require_once '../Auth/vendor/db.php'; ?>
                                         </div>
                                         <div class="price">
                                             <a class="a1">В наличии:</a>
-                                            <a><?php if (sumCountTovar($connect, $_GET['tovar']['ProductID'])['SUM(Quantity)'] == 0) {
-                                                echo 0;
-                                            } else
-                                                echo sumCountTovar($connect, $_GET['tovar']['ProductID'])['SUM(Quantity)']; ?>
+                                            <a><?php  echo $_GET['tovar']['Stock'] ?>
                                                 шт.</a>
                                         </div>
                                     </div>
@@ -92,10 +89,18 @@ require_once '../Auth/vendor/db.php'; ?>
             </div>
         </section>
         <section class="buttonsBuy">
-            <form>
-                <button>В корзину</button>
-                <button>Купить сейчас</button>
-            </form>
+            <?php 
+            if(!empty($_SESSION['user'])){
+                echo'
+                <form method="POST" action="../Cart/cart.php?id='.$_GET['tovar']['ProductID'].'&name='.$_GET['tovar']['Name'].'">
+                <input name="count" placeholder="Кол-во" type="number" min="1" max="999" required></input>
+                    <button>В корзину</button>
+                </form>
+            ';
+            }else echo 'Что-бы сделать заказ, нужно войти в аккаунт';
+
+            ?>
+
         </section>
         <footer class="footer">
             <div class="div2"></div>

@@ -60,7 +60,13 @@ session_start();
                 <a class="a4">АВТОТОВАРЫ</a>
                 <a class="a4">АКЦИИ</a>
                 <a class="a4">ЮРИДИЧЕСКИМ ЛИЦАМ</a>
-                <a class="a8">Корзина</a>
+                <?php 
+                if(!empty($_SESSION['user'])){
+                  echo ' <a class="a8" href="./Cart/cart.php">Корзина</a>';
+                }else
+                echo ' <a class="a8" href="./Auth/Auth1.php">Корзина</a>';
+                ?>
+
                 <a class="a8">Заказы</a>
               </div>
             </div>
@@ -92,7 +98,7 @@ session_start();
               </div>
               <button class="rectangle-parent">Перейти</button>
             </div>
-            <form action="./Auth/vendor/searchItem.php" method="post">
+            <form class="search-input" action="./Auth/vendor/searchItem.php" method="post">
               <div class="search-input">
                 <div class="vin-container">
                   <p class="p">Поиск по:</p>

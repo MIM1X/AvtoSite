@@ -6,7 +6,7 @@ require_once 'db.php';
 $nameTovar = $_POST['searchTovar'];
 
 if (!empty($nameTovar)) {
-    $check_tovar = mysqli_query($connect, "SELECT * FROM `products` WHERE (`Part_Num` LIKE '$nameTovar%' AND LENGTH('$nameTovar') >= 5) OR `Name` LIKE '%$nameTovar%'");
+    $check_tovar = mysqli_query($connect, "SELECT * FROM `products` WHERE (`Part_Num` LIKE '%$nameTovar%' AND LENGTH('$nameTovar') >= 5) OR `Name` LIKE '%$nameTovar%'");
 
     if (mysqli_num_rows($check_tovar) > 0) {
 

@@ -1,19 +1,19 @@
 <?php
 require_once '../Auth/vendor/db.php';
-if(isset($_POST['submit'])){
-    $name=$_POST['name'];
-    $descrip=$_POST['descr'];
-    $charact=$_POST['charac'];
-    $price=$_POST['price'];
-    $supplier=$_POST['suppl'];
-    $part_num=$_POST['partnum'];
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $descrip = $_POST['descr'];
+    $charact = $_POST['charac'];
+    $price = $_POST['price'];
+    $supplier = $_POST['suppl'];
+    $part_num = $_POST['partnum'];
 
     $sql = "insert into `products` (Name, Description, Characteristics, Price, Supplier, Part_Num) 
     values('$name','$descrip','$charact','$price','$supplier','$part_num')";
     $res = mysqli_query($connect, $sql);
-    if($res){
+    if ($res) {
         header('location:adm.php');
-    }else{
+    } else {
         die(mysqli_error($connect));
     }
 };
@@ -46,9 +46,24 @@ if(isset($_POST['submit'])){
             <label class="form-label">Цена</label>
             <input name="price" type="text" class="form-control" placeholder="">
         </div>
-        <div class="mb-3">
-            <label class="form-label">Поставщик</label>
-            <input name="suppl" type="text" class="form-control" placeholder="">
+        
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Поставщик</label>
+            <select name="suppl" class="form-select" id="inputGroupSelect01">
+
+                <?php
+                $res = suppliers($connect);
+                if ($res) {
+                    while ($row = mysqli_fetch_assoc($res)) {
+                        $id = $row['SupplierID'];
+                        $name = $row['Name'];
+                        echo '
+                                        <option value="'.$id.'">'.$name.'</option>
+                    ';
+                    }
+                }
+                ?>
+            </select>
         </div>
         <div class="mb-3">
             <label class="form-label">Номер запчасти</label>
