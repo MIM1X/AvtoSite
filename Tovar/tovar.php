@@ -93,7 +93,7 @@ require_once '../Auth/vendor/db.php'; ?>
             if(!empty($_SESSION['user'])){
                 echo'
                 <form method="POST" action="../Cart/cart.php?id='.$_GET['tovar']['ProductID'].'&name='.$_GET['tovar']['Name'].'">
-                <input name="count" placeholder="Кол-во" type="number" min="1" max="999" required></input>
+                <input name="count" placeholder="Кол-во" type="number" min="1" max="'.$_GET['tovar']['Stock'].'" required></input>
                     <button>В корзину</button>
                 </form>
             ';

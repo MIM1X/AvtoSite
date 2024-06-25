@@ -14,6 +14,7 @@ session_start();
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
 </head>
+
 <body class="body">
   <div class="car">
     <section class="brand-banner">
@@ -44,15 +45,13 @@ session_start();
             </div>
           </div>
           <div class="header-separator">
-            <img onClick="window.location.href = 'http://localhost/AvtoSite/'" class="logo-icon" loading="lazy"
-              src="./public/logo.svg" />
+            <img onClick="window.location.reload()" class="logo-icon" loading="lazy" src="./public/logo.svg" />
             <img class="icon" alt="" src="./public/@2x.png" />
           </div>
           <div class="navigation">
             <div class="nav-items">
               <a class="car1">
-                <span onClick="window.location.href = 'http://localhost/AvtoSite/'"
-                  class="span">запчасть<b>CAR</b></span>
+                <span onClick="window.location.reload()" class="span">запчасть<b>CAR</b></span>
               </a>
               <div class="nav-links">
                 <a class="a4">КАТАЛОГ</a>
@@ -60,14 +59,16 @@ session_start();
                 <a class="a4">АВТОТОВАРЫ</a>
                 <a class="a4">АКЦИИ</a>
                 <a class="a4">ЮРИДИЧЕСКИМ ЛИЦАМ</a>
-                <?php 
-                if(!empty($_SESSION['user'])){
-                  echo ' <a class="a8" href="./Cart/cart.php">Корзина</a>';
-                }else
-                echo ' <a class="a8" href="./Auth/Auth1.php">Корзина</a>';
+                <?php
+                if (!empty($_SESSION['user'])) {
+                  echo ' <a class="a8" href="./Cart/cart.php">Корзина</a>
+                         <a class="a8" href="./Orders/orders.php">Заказы</a>';
+                } else
+                  echo ' <a class="a8" href="./Auth/Auth1.php">Корзина</a>
+                       <a class="a8" href="./Auth/Auth1.php">Заказы</a>';
                 ?>
 
-                <a class="a8">Заказы</a>
+
               </div>
             </div>
           </div>
@@ -108,7 +109,8 @@ session_start();
                 </div>
                 <div class="search-bar">
                   <div class="div13">
-                    <input name="searchTovar" class="sjnaan16u177457"placeholder="Пример: 4134400К00 / SJNAAN16U177457 / Бензонасос 2107" type="text"/>
+                    <input name="searchTovar" class="sjnaan16u177457"
+                      placeholder="Пример: 4134400К00 / SJNAAN16U177457 / Бензонасос 2107" type="text" />
                   </div>
                   <button type="submit" class="rectangle-parent" id="buttonSearch">Поиск</button>
                 </div>
@@ -127,10 +129,10 @@ session_start();
           $tovar_query = http_build_query(array('tovar' => $_SESSION['tovar'][$i]));
           echo
             '
-              <div class="tovar" onclick= window.location.href="./Tovar/tovar.php?'.$tovar_query.'">
+              <div class="tovar" onclick= window.location.href="./Tovar/tovar.php?' . $tovar_query . '">
                 <div class="div53">
-                  <a class="a11">'.$_SESSION['tovar'][$i]['Name'].'</a>
-                  <a class="a11">'.$_SESSION['tovar'][$i]['Price'].' RUB</a>
+                  <a class="a11">' . $_SESSION['tovar'][$i]['Name'] . '</a>
+                  <a class="a11">' . $_SESSION['tovar'][$i]['Price'] . ' RUB</a>
                 </div>
               <img class="icon2" loading="lazy" src="./public/zaza.svg"/>
               </div>
@@ -140,7 +142,7 @@ session_start();
       } else {
         //сообщение о пустоте результатов
         if (!empty($_SESSION['message']))
-          echo '<a class = "a2">'.$_SESSION['message'].'</a>';
+          echo '<a class = "a2">' . $_SESSION['message'] . '</a>';
         unset($_SESSION['message']);
       }
       ?>
@@ -230,4 +232,5 @@ session_start();
     </footer>
   </div>
 </body>
+
 </html>

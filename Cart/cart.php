@@ -11,14 +11,25 @@ if (!empty($_GET['id']) && !empty($_GET['name']) && !empty($_POST['count'])) {
     $name = $_GET['name'];
     $count = $_POST['count'];
 
-    $sql = "insert into `customers_cart` values('$idUser','$id','$count')";
+    $sql = "SELECT * from `customers_cart` where CustomerID = $idUser and ProductID = $id";
     $res = mysqli_query($connect, $sql);
-    if (!$res)
-        die(mysqli_error($connect));
+    $rowCount = mysqli_num_rows($res);
+    if ($res -> num_rows > 0) {
+
+            $sql = "UPDATE `customers_cart` SET Quantity = Quantity + $count WHERE CustomerID = $idUser and ProductID = $id";
+            $res = mysqli_query($connect, $sql);
+            if (!$res)
+                die(mysqli_error($connect));
+        }else{
+        $sql = "INSERT into `customers_cart` values('$idUser','$id','$count')";
+        $res = mysqli_query($connect, $sql);
+        if (!$res)
+            die(mysqli_error($connect));
+    };
 }
 if (isset($_POST['count'])) {
     echo '<meta http-equiv="refresh" content="1; URL=cart.php">';
-}
+};
 ?>
 
 <!DOCTYPE html>
@@ -65,9 +76,9 @@ if (isset($_POST['count'])) {
             ?>
         </tbody>
     </table>
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button onclick="window.location.href = 'buy.php';" class="btn btn-success btn-lg">Заказать</button>
-        </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button onclick="window.location.href = 'buy.php';" class="btn btn-success btn-lg">Заказать</button>
+    </div>
 
 </body>
 

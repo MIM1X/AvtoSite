@@ -70,7 +70,7 @@ require_once '../Auth/vendor/db.php';
                             <td>' . $supplier . '</td>
                             <td>' . $part_num . '</td>
                             <td>
-                                <button onclick="window.location.href = update.php' . $id . '" class="btn btn-warning my-2">Обновить данные</button>
+                                <button type="button" onclick="window.location.href = "update.php?id=' . $id . '"" class="btn btn-warning my-2">Обновить данные</button>
                                 <div class="btn-group">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     Удалить товар
